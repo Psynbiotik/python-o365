@@ -28,11 +28,11 @@ def get(url,**params):
 	if url == 'https://outlook.office365.com/api/v1.0/me/messages/bigoldguid/attachments':
 		ret = Resp(att_rep)
 	else:
-		raise
+		raise Exception('spam', 'eggs')
 	if params['auth'][0] != 'test@unit.com':
-		raise
+		raise Exception('spam', 'eggs')
 	if params['auth'][1] != 'pass':
-		raise
+		raise Exception('killer', 'rabbit')
 
 	return ret
 
@@ -40,15 +40,15 @@ message.requests.get = get
 
 def post(url,data,headers,auth):
 	if url != 'https://outlook.office365.com/api/v1.0/me/sendmail':
-		raise
+		raise Exception('spam', 'eggs')
 		if auth[0] != 'test@unit.com':
 				raise
 		if auth[1] != 'pass':
-				raise
+				raise Exception('spam', 'eggs')
 	if headers['Content-type'] != 'application/json':
-		raise
+		raise Exception('spam', 'eggs')
 	if headers['Accept'] != 'text/plain':
-		raise
+		raise Exception('spam', 'eggs')
 
 	if isinstance(data,dict) and 'Message' in data.keys():
 		if data['Message']['Body']['Content'] == 'The new Cafetaria is open.':
@@ -64,15 +64,15 @@ message.requests.post = post
 
 def patch(url,data,headers,auth):
 	if url != 'https://outlook.office365.com/api/v1.0/me/messages/big guid=':
-		raise
+		raise Exception('spam', 'eggs')
 	if auth[0] != 'test@unit.com':
-		raise
+		raise Exception('spam', 'eggs')
 	if auth[1] != 'pass':
-		raise
+		raise Exception('spam', 'eggs')
 	if headers['Content-type'] != 'application/json':
-		raise
+		raise Exception('spam', 'eggs')
 	if headers['Accept'] != 'application/json':
-		raise
+		raise Exception('spam', 'eggs')
 	return True
 
 message.requests.patch = patch
